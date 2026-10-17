@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Check your predicted scholarship-grantee score based on past student records.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Scholarship Grantee Predictor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Spectral:wght@600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="band">
+  <svg class="rays" viewBox="-100 -100 200 200" aria-hidden="true" focusable="false">
+    <g id="rays" fill="#f2b632"></g>
+    <circle r="22" fill="#f2b632"></circle>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">Student scholarship research prototype</p>
+    <h1>Could you be a scholarship grantee?</h1>
+    <p class="lede">Answer a few questions about yourself and your family. The predictor compares your answers with <strong>1,084 past student records</strong> and shows how students like you have fared, and why.</p>
+  </div>
+</header>
+
+<main class="wrap work">
+  <section aria-label="Your answers">
+    <div class="example-note" id="exampleNote">
+      <p><b>These are example answers.</b> Change them to match you. The result updates as you go.</p>
+      <button type="button" class="link" id="resetBtn">Reset example</button>
+    </div>
+
+    <form id="f" novalidate>
+      <fieldset>
+        <legend>About you</legend>
+        <div class="grid">
+          <div class="field">
+            <span class="q" id="sex-l">Sex</span>
+            <div class="seg" role="radiogroup" aria-labelledby="sex-l">
+              <input type="radio" name="sex" id="sex-f" value="Female"><label for="sex-f">Female</label>
+              <input type="radio" name="sex" id="sex-m" value="Male"><label for="sex-m">Male</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="birth_year">Birth year</label>
+            <input type="number" id="birth_year" name="birth_year" min="1985" max="2012" step="1" inputmode="numeric">
+            <p class="flag" id="birth_flag" hidden></p>
+          </div>
+          <div class="field">
+            <label for="civil_status">Civil status</label>
+            <select id="civil_status" name="civil_status"></select>
+          </div>
+          <div class="field">
+            <label for="religion">Religion</label>
+            <select id="religion" name="religion"></select>
+          </div>
+          <div class="field span2">
+            <label for="home_town">Home town</label>
+            <select id="home_town" name="home_town"></select>
+            <p class="help">Only places that appear in the student records are listed.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your enrollment</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="course">Course</label>
+            <select id="course" name="course"></select>
+          </div>
+          <div class="field">
+            <label for="major">Major</label>
+            <select id="major" name="major"></select>
+            <p class="help">Only majors offered under your course are listed.</p>
+          </div>
+          <div class="field">
+            <label for="registering_as">Enrollment status</label>
+            <select id="registering_as" name="registering_as"></select>
+          </div>
+          <div class="field">
+            <label for="year_level">Year level</label>
+            <select id="year_level" name="year_level"></select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Where you live and who supports you</legend>
+        <div class="grid">
+          <div class="field">
+            <span class="q" id="lwp-l">Do you live with your parents?</span>
+            <div class="seg" role="radiogroup" aria-labelledby="lwp-l">
+              <input type="radio" name="living_with_parents" id="lwp-y" value="Yes"><label for="lwp-y">Yes</label>
+              <input type="radio" name="living_with_parents" id="lwp-n" value="No"><label for="lwp-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="q" id="brd-l">Are you boarding?</span>
+            <div class="seg" role="radiogroup" aria-labelledby="brd-l">
+              <input type="radio" name="boarding" id="brd-y" value="Yes"><label for="brd-y">Yes</label>
+              <input type="radio" name="boarding" id="brd-n" value="No"><label for="brd-n">No</label>
+            </div>
+          </div>
+          <div class="field span2">
+            <label for="other_supporter">Who else supports your studies, besides your parents?</label>
+            <select id="other_supporter" name="other_supporter"></select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your family</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="mother_occupation">Mother's occupation</label>
+            <select id="mother_occupation" name="mother_occupation"></select>
+          </div>
+          <div class="field">
+            <label for="mother_monthly_income">Mother's monthly income</label>
+            <select id="mother_monthly_income" name="mother_monthly_income"></select>
+          </div>
+          <div class="field">
+            <label for="father_occupation">Father's occupation</label>
+            <select id="father_occupation" name="father_occupation"></select>
+          </div>
+          <div class="field">
+            <label for="father_monthly_income">Father's monthly income</label>
+            <select id="father_monthly_income" name="father_monthly_income"></select>
+            <p class="help">No father in the records earned more than ₱30,000 a month.</p>
+          </div>
+          <div class="field">
+            <label for="mother_ethnicity">Mother's ethnic group</label>
+            <select id="mother_ethnicity" name="mother_ethnicity"></select>
+          </div>
+          <div class="field">
+            <label for="father_ethnicity">Father's ethnic group</label>
+            <select id="father_ethnicity" name="father_ethnicity"></select>
+          </div>
+          <p class="help span2" style="grid-column:1/-1">Choose "Not applicable" if a parent does not belong to an Indigenous group. Groups are listed as they appear in the student records.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Disability</legend>
+        <div class="grid">
+          <div class="field span2">
+            <span class="q" id="dis-l">Do you have a disability?</span>
+            <div class="seg" role="radiogroup" aria-labelledby="dis-l">
+              <input type="radio" name="has_dis" id="dis-n" value="No"><label for="dis-n">No</label>
+              <input type="radio" name="has_dis" id="dis-y" value="Yes"><label for="dis-y">Yes</label>
+            </div>
+          </div>
+          <div class="field span2" id="disTypes" hidden>
+            <span class="q">Which kind? Tick all that apply.</span>
+            <div class="checks">
+              <label class="check"><input type="checkbox" name="dis" id="d-visual" value="dis_visual">Visual</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-physical" value="dis_physical">Physical</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-speech" value="dis_speech">Speech and language</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-mental" value="dis_mental">Mental</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-psych" value="dis_psych">Psychological</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-learning" value="dis_learning">Learning</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-rare" value="dis_rare">Rare disease</label>
+              <label class="check"><input type="checkbox" name="dis" id="d-other" value="other">Other (for example, intellectual)</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+
+  <aside class="result" id="result" aria-live="polite" aria-labelledby="res-title">
+    <h2 id="res-title">Your predicted score</h2>
+    <div class="score-row">
+      <div class="score" id="score">–</div>
+      <span class="pill" id="verdict"></span>
+    </div>
+    <div class="meter" aria-hidden="true">
+      <div class="track"><div class="fill" id="fill"></div><div class="cut" id="cut"></div></div>
+      <div class="scale"><span>0%</span><span id="cutLabel">50% cutoff</span><span>100%</span></div>
+    </div>
+    <p class="summary" id="summary">Loading the model…</p>
+    <p class="flag" id="loadError" hidden></p>
+    <p class="real" id="real" hidden></p>
+    <div class="factors">
+      <h3>What affected your score most</h3>
+      <p class="help" style="margin:-4px 0 10px">Compared with the most common answer in the records.</p>
+      <ul class="factor-list" id="factors"></ul>
+    </div>
+    <div class="notes" id="notesBox" hidden>
+      <h3>Read with care</h3>
+      <ul id="notes"></ul>
+    </div>
+    <p class="fineprint">This is a prediction from past records, not an official decision. Scholarship offices review your full application, and about 3 in 10 predictions turn out wrong.</p>
+  </aside>
+</main>
+
+<section class="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <h2 id="about-title">How the predictor works</h2>
+    <div class="stats">
+      <div class="stat"><b>71%</b><span>correct on 220 test students the model had never seen</span></div>
+      <div class="stat"><b>0.77</b><span>AUC: picks the real grantee out of a grantee and non-grantee pair 77% of the time</span></div>
+      <div class="stat"><b>1,084</b><span>student records, half grantees and half not</span></div>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>What it does</h3>
+        <p>It is a logistic regression model built in IBM SPSS. Each answer adds to or takes away from your score, based on how often students with that answer were grantees. A score of 50% or more counts as "likely".</p>
+      </div>
+      <div>
+        <h3>What it uses, and what it can't see</h3>
+        <p>It uses every detail in the records, including course, major and both parents' ethnic groups. Grades, achievements and the application itself are not in the records, so the model cannot see them.</p>
+      </div>
+      <div>
+        <h3>Why the percentage is a score, not a chance</h3>
+        <p>The records were balanced to half grantees and half non-grantees. That makes the score good for comparing students with each other, but higher than the real chance whenever grantees are less common than that.</p>
+      </div>
+      <div>
+        <h3>Patterns to be aware of</h3>
+        <ul>
+          <li>Female students in the records were grantees more often, so the model gives them a higher score. This reflects past records, not a rule.</li>
+          <li>None of the 56 new students in the records were grantees, so new students score very low.</li>
+          <li>Every course and major had exactly half grantees in the records, so they change the score only a little.</li>
+          <li>Many ethnic groups have fewer than 20 students in the records. Answers shared by only a few students give unreliable results, and the predictor flags these.</li>
+        </ul>
+      </div>
+    </div>
+    <details id="rateBox">
+      <summary>For researchers: adjust for the real grantee rate</summary>
+      <p class="help" style="margin-bottom:10px">If you know what share of students really receive a scholarship, enter it to see a corrected chance alongside the score.</p>
+      <div class="rate-row">
+        <label for="rate">Real grantee rate</label>
+        <input type="number" id="rate" min="1" max="99" step="1" placeholder="e.g. 20" inputmode="numeric"> <span>%</span>
+      </div>
+    </details>
+    <p class="version" id="version"></p>
+  </div>
+</section>
+
+<div class="dock" id="dock" aria-hidden="true">
+  <div><b id="dockScore">–</b> <span class="dock-verdict" id="dockVerdict"></span></div>
+  <a href="#result" tabindex="-1">See why</a>
+</div>
+
+<!-- model.js = prediction engine (reads the SPSS file); app.js = the page -->
+<script src="js/model.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

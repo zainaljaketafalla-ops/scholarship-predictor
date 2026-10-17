@@ -1,0 +1,189 @@
+{
+ "note": "Facts from the 1,084 student records that the SPSS model file does not hold: how many students gave each answer, and which majors belong to each course.",
+ "total_students": 1084,
+ "counts": {
+  "sex": {
+   "Female": 519,
+   "Male": 565
+  },
+  "mother_ethnicity": {
+   "Agta": 1,
+   "Ati": 2,
+   "Ayangan": 47,
+   "Bago": 20,
+   "Balangao": 1,
+   "Bukidnon": 5,
+   "Dumagat": 1,
+   "Eskaya": 6,
+   "Gaddang": 2,
+   "Ibaloi": 7,
+   "Ibanag": 18,
+   "Illongot/Bugkalot": 18,
+   "Isinai": 8,
+   "Itneg": 9,
+   "Ivatan": 3,
+   "Kalinga": 17,
+   "Kankanaey": 32,
+   "Not Applicable": 406,
+   "Other": 332,
+   "Tuwali": 134,
+   "Yogad": 15
+  },
+  "father_ethnicity": {
+   "Applai": 1,
+   "Ati": 2,
+   "Ayangan": 46,
+   "Bago": 15,
+   "Bontok": 2,
+   "Bukidnon": 8,
+   "Calinga": 1,
+   "Eskaya": 5,
+   "Gaddang": 2,
+   "Ibaloi": 9,
+   "Ibanag": 19,
+   "Illongot/Bugkalot": 19,
+   "Isinai": 8,
+   "Itneg": 11,
+   "Ivatan": 1,
+   "Kalinga": 19,
+   "Kankanaey": 44,
+   "Karao": 1,
+   "Not Applicable": 394,
+   "Other": 316,
+   "Tuwali": 145,
+   "Yogad": 16
+  },
+  "civil_status": {
+   "Married": 8,
+   "Separated/Divorced": 13,
+   "Single": 1063
+  },
+  "religion": {
+   "Iglesia ni Cristo": 148,
+   "Other": 203,
+   "Protestant / Evangelical": 294,
+   "Roman Catholic": 439
+  },
+  "home_town": {
+   "Aglipay": 272,
+   "Cabarroguis": 305,
+   "Diffun": 87,
+   "Maddela": 211,
+   "Nagtipunan": 59,
+   "Outside Quirino (Ifugao)": 3,
+   "Outside Quirino (Isabela)": 28,
+   "Outside Quirino (Nueva Vizcaya)": 1,
+   "Quirino (unspecified)": 35,
+   "Saguday": 83
+  },
+  "course": {
+   "BAELS": 102,
+   "BEED": 158,
+   "BSBA": 134,
+   "BSCE": 112,
+   "BSCS": 220,
+   "BSENTREP": 116,
+   "BSHM": 108,
+   "BSMATH": 58,
+   "BSMID": 76
+  },
+  "major": {
+   "Business Analytics": 36,
+   "Civil Engineering": 112,
+   "Data Mining": 184,
+   "English Language": 102,
+   "Entrepreneurship": 116,
+   "General Education": 158,
+   "Hospitality Management": 108,
+   "Marketing Management": 134,
+   "Mathematics": 58,
+   "Midwifery": 76
+  },
+  "registering_as": {
+   "New Student": 56,
+   "Old Student": 1012,
+   "Transfer-in": 16
+  },
+  "living_with_parents": {
+   "No": 238,
+   "Yes": 846
+  },
+  "mother_occupation": {
+   "Deceased / Absent": 53,
+   "Domestic / Service worker": 115,
+   "Farmer": 139,
+   "Government / Professional": 70,
+   "Housewife / Unemployed": 347,
+   "None / Not stated": 36,
+   "OFW": 131,
+   "Other": 53,
+   "Vendor / Small business": 140
+  },
+  "mother_monthly_income": {
+   "0": 449,
+   "1-10,000": 458,
+   "10,001-20,000": 141,
+   "20,001-30,000": 14,
+   "30,001-40,000": 8,
+   "40,001-50,000": 14
+  },
+  "father_occupation": {
+   "Deceased / Absent": 68,
+   "Driver / Skilled / Laborer": 335,
+   "Farmer": 493,
+   "Government / Professional": 25,
+   "Housewife / Unemployed": 1,
+   "None / Not stated": 61,
+   "OFW": 5,
+   "Other": 65,
+   "Vendor / Small business": 31
+  },
+  "father_monthly_income": {
+   "0": 166,
+   "1-10,000": 748,
+   "10,001-20,000": 168,
+   "20,001-30,000": 2
+  },
+  "boarding": {
+   "No": 612,
+   "Yes": 472
+  },
+  "other_supporter": {
+   "None": 689,
+   "Other": 141,
+   "Relative": 224,
+   "Scholarship / Assistance": 14,
+   "Self-supporting": 16
+  }
+ },
+ "majors": {
+  "BAELS": [
+   "English Language"
+  ],
+  "BEED": [
+   "General Education"
+  ],
+  "BSBA": [
+   "Marketing Management"
+  ],
+  "BSCE": [
+   "Civil Engineering"
+  ],
+  "BSCS": [
+   "Business Analytics",
+   "Data Mining"
+  ],
+  "BSENTREP": [
+   "Entrepreneurship"
+  ],
+  "BSHM": [
+   "Hospitality Management"
+  ],
+  "BSMATH": [
+   "Mathematics"
+  ],
+  "BSMID": [
+   "Midwifery"
+  ]
+ }
+}
